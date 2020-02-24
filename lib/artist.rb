@@ -2,12 +2,13 @@ require 'pry'
 require_relative '../config/environment.rb'
 
 class Artist
-  extend Memorable
-  extend Findable
-  include Paramable
-
   attr_accessor :name
   attr_reader :songs
+
+  extend Memorable::ClassMethods
+  extend Findable::ClassMethods
+  include Memorable::InstanceMethods
+  include Paramable::InstanceMethods
 
   @@artists = []
 
